@@ -1,0 +1,61 @@
+<div class="login">
+  <div class="flip">
+
+    <div class="form-login">
+      <h1 class="title">Авторизация</h1>
+      <fieldset class="fieldset">
+        <div
+          class="alert alert-{{message.type}}"
+          *ngIf="message.text"
+        >
+          {{message.text}}
+        </div>
+        <form [formGroup]="login_form" (ngSubmit)="onSubmit()">
+          <div class="form-group"
+               [ngClass]="{'has-error': login_form.get('login_email').invalid && login_form.get('login_email').touched}"
+          >
+          <input class="input-form" type="email"  placeholder="Логин или Email" formControlName="login_email" required />
+          <span
+            class="form-help-text"
+            *ngIf="login_form.get('login_email').invalid && login_form.get('login_email').touched"
+          >
+            <!--Ключ ошибки 'Введите корректный email' является email(как узнать, переходим в консоле в браузере controls->user->controls->email->errors)-->
+           <span *ngIf="login_form.get('login_email')['errors']['required']">Email не может быть пустым. </span>
+            <span *ngIf="login_form.get('login_email').errors['email']">Введите корректный email</span>
+            <span *ngIf="login_form.get('login_email').errors['emailIsUsed']">Такой email уже существует</span>
+          </span>
+          </div>
+          <div class="form-group"
+               [ngClass]="{'has-error': login_form.get('login_pass').invalid && login_form.get('login_pass').touched}">
+          <input class="input-form" type="password" placeholder="Пароль" formControlName="login_pass" required />
+
+          <span  class="form-help-text"
+            *ngIf="login_form.get('login_pass').invalid && login_form.get('login_pass').touched"
+          >
+
+          <span
+            *ngIf="login_form.get('login_pass').errors['required']"
+          >
+		  Пароль не должен быть пустым!
+		  </span>
+            <span
+              *ngIf="login_form.get('login_pass').errors['minlength']"
+            >
+              Пароль должен быть больше
+        {{ login_form.get('login_pass')['errors']['minlength']['requiredLength'] }}
+        символов.
+		  </span>
+          </span>
+          </div>
+          <input class="input-form" type="submit" value="Войти" [disabled]="login_form.invalid"/>
+        </form>
+        <p><a class="flipper" routerLink="/app/registration-form">Нет аккаунта? Регистрация.</a><br>
+          <a class="flipper" routerLink="/app/registration-form">Забыли пароль?</a></p>
+      </fieldset>
+    </div>
+
+  </div>
+
+</div>
+
+

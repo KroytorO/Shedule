@@ -1,0 +1,145 @@
+.login {
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 300px;
+  font: 12px/2 Helvetica Neue,
+  Helvetica, Arial, sans-serif;
+  color: #888;
+}
+
+.title {
+  position: relative;
+  margin: 0;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 5px 5px 0 0;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .7);
+  background-color: rgba(105, 0, 204, .9);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, .3);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3);
+  font-family: Tahoma;
+}
+
+.fieldset {
+  display: block;
+  margin: 0;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  -webkit-box-shadow: 0 1px 2px #aaa;
+  box-shadow: 0 1px 2px #aaa;
+}
+
+.title:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 2px;
+  left: 0;
+}
+
+
+.flipper {
+  color: #888;
+  text-decoration: none;
+}
+
+.flipper:hover {
+  color: #369;
+}
+
+.input-form:not([type="submit"]) {
+  width: 260px;
+  padding: 12px 0;
+  margin: 15px 0;
+  border: 1px solid #8400FF;
+  border-radius: 20px;
+  color: #111;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, .5);
+  cursor: pointer;
+}
+
+.input-form:focus {
+  background: rgba(245, 255, 0, .2);
+  -webkit-box-shadow: inset 0 1px 7px #ddd;
+  box-shadow: inset 0 1px 7px #ddd;
+}
+
+.input-form[type="submit"] {
+  width: 260px;
+  padding: 12px 20px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  color: #111;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, .5);
+  cursor: pointer;
+  background-color: #8400FF;
+  -webkit-box-shadow: inset 0 1px 1px rgba(105, 0, 204, .9);
+  box-shadow: inset 0 1px 25px rgba(105, 0, 204, .9);
+}
+
+.input-form[type="submit"]:hover {
+  background-color: rgb(241, 217, 241);
+}
+
+.input-form[type="submit"]:active {
+  padding: 13px 20px 11px;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, .9);
+  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, .5);
+}
+
+/* flip animation */
+
+.flip {
+  position: relative;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+}
+
+.form-login,
+.form-signup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+}
+
+.form-login {
+  z-index: 2;
+}
+
+.form-login {
+  /*-webkit-transform: rotateY(180deg);*/
+}
+
+.flip.flipped {
+  -webkit-transform: rotateY(-180deg);
+}
+
+
+/*Cтили ошибок*/
+.form-group.has-error .form-help-text {
+  color: #fb494d;
+  font-size: 13px
+}
+
+.alert.alert-danger {
+  background-color: #f44;
+  border: 1px solid #f44;
+  color: #fff;
+  text-align:center;
+  border-radius:3px;
+  font-size: 0.8rem;
+}

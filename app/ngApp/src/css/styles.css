@@ -1,0 +1,289 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  max-width: 100%;
+  font-family: Fira Sans, Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  line-height: 1.5;
+  min-height: 100%;
+  font-weight: 400;
+  background-color: #f7f7f7;
+  color: #2e2e2e;
+}
+
+/*****Сброс*****/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body{
+  background: #fff;
+}
+/*Сбрасываем параметры всех тегов*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  outline: 0;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: .01rem;
+  text-decoration: none;
+  background-color: #8400ff;
+  color: #fff;
+  transition: all .3s ease-out 0s;
+}
+
+/*General style for pages Delivery,payment,return,contacts*/
+.page {
+  display: flex;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 40px 30px;
+  box-sizing: border-box;
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  flex-basis: auto;
+  margin-bottom: 3rem;
+}
+
+.page-row {
+  margin-top: 4rem;
+}
+
+.page-title {
+  line-height: 2.25rem;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #999;
+}
+
+.page-subtitle {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+}
+
+.page-text {
+  margin-top: 1rem;
+}
+
+/*THE END General style for pages Delivery,payment,return,contacts*/
+
+/**Sidebar**/
+
+.page-sidebar {
+  order: 1;
+  padding: 15px 30px;
+  flex-basis: auto;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width:700px) {
+  .page-sidebar {
+    display: none;
+  }
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu_items {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-menu_item {
+  display: flex;
+}
+
+.sidebar-menu_link {
+  width: 100%;
+  font-weight: 500;
+  padding: .5rem 0;
+  color: #000;
+  border-bottom: 1px solid #e8e8e8;
+  transition: all .2s ease-in-out;
+}
+
+/**The end Sidebar**/
+
+/*General style for pages Delivery,return*/
+.input {
+  position: relative;
+}
+
+.input-input {
+  width: 100%;
+  border-radius: 3px;
+  height: 3.125rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/*THE END General style for pages Delivery,return*/
+
+
+/*General style for pages Delivery, payment,contacts*/
+
+.change-text {
+  color: #949494;
+}
+
+.map{
+  display: block;
+  width:90%
+}
+
+/*THE END General style for pages Delivery, payment,contacts*/
+
+
+/*General style for pages Return,contacts*/
+.page-title.between {
+  margin-bottom: 4rem;
+}

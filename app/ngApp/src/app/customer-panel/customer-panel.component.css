@@ -1,0 +1,93 @@
+.container_my {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.container_one_part {
+  display: flex;
+  flex-direction: column;
+  background: rgba(48, 63, 159, 0.8);
+  /*    margin: 0 auto;*/
+  padding: 10px auto;
+  text-align: center;
+  border: rgba(48, 63, 159, 0.8);
+  border-top-left-radius: 8px;
+}
+
+.fa.fa-user-circle-o {
+  margin: 5% auto;
+  font-size: 10rem;
+  color: #FFF;
+}
+
+.wrap-admin_panel {
+  display: flex;
+  /*width: 80%;*/
+  margin: 5% auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.user_name {
+  padding: 15px 0;
+  color: #fff;
+}
+
+
+/*** MAIN Content***/
+
+.content {
+  border-left: 2px solid #ddd;
+  width: 100%;
+}
+
+.header_admin {
+  display: flex;
+  height: auto;
+  background: #3F51B5;
+  justify-content: flex-end;
+  border: #3F51B5;
+  border-top-right-radius: 8px;
+}
+
+.list-events{
+  text-align: center;
+}
+
+
+/*One section*/
+
+.wrap_admin-row-item {
+
+  display: flex;
+  justify-content: space-around;
+  align-content: space-between;
+  padding-bottom: 4%;
+}
+
+.admin-row-item {
+  display: flex;
+  align-content: space-between;
+  /*    border: 2px solid #3AE2CE;*/
+  background: #ccc;
+  padding: 30px;
+}
+
+
+
+/*Logout*/
+
+.input-form.button{
+  height: 32px;
+  padding: 0 1rem;
+}
+
+
+  @media (max-width: 700px){
+    .container_my  {
+      display: none;
+    }
+
+  }
+

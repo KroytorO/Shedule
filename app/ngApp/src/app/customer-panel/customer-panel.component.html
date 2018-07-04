@@ -1,0 +1,122 @@
+<div class="wrap-admin_panel">
+  <div class="container_my">
+    <div class="container_one_part">
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+
+      <p class="user_name">User</p>
+
+    </div>
+
+
+  </div>
+
+  <!--        /*MAIN*/-->
+
+  <div class="content">
+    <header class="header_admin">
+      <div class="logout" (click)="onLogout()">
+        <input class="input-form button" type="button" value="Выйти"/>
+      </div>
+
+    </header>
+    <main class="main_admin">
+
+
+      <h1 class="list-events">Список событий</h1>
+      <hr>
+      <form [formGroup]="formEvent" (ngSubmit)="onSubmit()">
+        <table class="table table-striped">
+          <td >
+            <input type="text"  class="form-control" placeholder="Введите событие" formControlName="name" required >
+            <span
+              class="form-help-text"
+              *ngIf="formEvent.get('name').invalid && formEvent.get('name').touched"
+            >
+Поле события  не может быть пустым.
+</span>
+          </td>
+          <td >
+            <input type="date" class="form-control" formControlName="data" required >
+            <span
+              class="form-help-text"
+              *ngIf="formEvent.get('data').invalid && formEvent.get('data').touched"
+            >
+Поле даты не может быть пустым.
+</span>
+          </td>
+          <td >
+            <input type="time"  class="form-control" placeholder="Ваше введите время" formControlName="time" required >
+            <span
+              class="form-help-text"
+              *ngIf="formEvent.get('time').invalid && formEvent.get('time').touched"
+            >
+Поле времени не может быть пустым.
+</span>
+          </td>
+        </table >
+        <input type="button" value="Добавить" class="btn btn-default" (click)="onSubmit()" />
+        <input type="reset" value="Сбросить" class="btn btn-default" />
+      </form>
+
+      <hr>
+      <button class="btn btn-default" (click)="loadEvents()">Загрузить события</button>
+
+
+      <hr>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <td>Названия</td>
+          <td>Дата</td>
+          <td>Время</td>
+          <td></td>
+          <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let event of eventsdb">
+          <ng-template [ngTemplateOutlet]="loadTemplate(event)"
+                       [ngTemplateOutletContext]="{ $implicit: event}">
+          </ng-template>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+      <!--шаблон для чтения-->
+      <ng-template #readOnlyTemplate let-event>
+        <td>{{event.name}}</td>
+        <td>{{event.data}}</td>
+        <td>{{event.time}}</td>
+        <td>
+          <input type="button" value="Изменить" class="btn btn-default" (click)="editEvents(event)" />
+        </td>
+        <td>
+          <input type="button" value="Удалить" (click)="deleteEvents(event)" class="btn btn-danger" />
+        </td>
+      </ng-template>
+
+      <!--шаблон для редактирования-->
+      <ng-template #editTemplate>
+        <td>
+          <input type="text" [(ngModel)]="editedEvents.name"   class="form-control" />
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="editedEvents.data" class="form-control" />
+        </td>
+        <td>
+          <input type="time" [(ngModel)]="editedEvents.time" class="form-control" />
+        </td>
+        <td>
+          <input type="button" value="Сохранить" (click)="saveUser()" class="btn btn-success" />
+        </td>
+        <td>
+          <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+        </td>
+      </ng-template>
+
+    </main>
+  </div>
+
+</div>

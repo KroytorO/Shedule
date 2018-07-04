@@ -1,0 +1,40 @@
+
+<h1>Список событий</h1>
+
+<hr>
+<button class="btn btn-default" (click)="loadEvents()">Загрузить события</button>
+
+<hr>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Названия</td>
+    <td>Дата</td>
+    <td>Время</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let event of eventsdb">
+    <ng-template [ngTemplateOutlet]="loadTemplate(event)"
+                 [ngTemplateOutletContext]="{ $implicit: event}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
+
+
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-event>
+  <td>{{event.name}}</td>
+  <td>{{event.data}}</td>
+  <td>{{event.time}}</td>
+
+</ng-template>
+
+
+
+
+
+

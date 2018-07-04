@@ -1,0 +1,93 @@
+<div class="login">
+  <div class="flip">
+    <div class="form-signup">
+      <h1 class="title">Регистрация</h1>
+      <fieldset class="fieldset">
+        <div
+          class="alert alert-{{message.type}}"
+          *ngIf="message.text"
+        >
+          {{message.text}}
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div
+              class="form-group"
+              [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
+            >
+            <input class="input-form" type="email" placeholder="Введите Ваш email адрес" formControlName="email" required />
+            <span
+              class="form-help-text"
+              *ngIf="form.get('email').invalid && form.get('email').touched"
+            >
+              <!--Ключ ошибки 'Введите корректный email' является email(как узнать, переходим в консоле в браузере controls->user->controls->email->errors)-->
+              <span *ngIf="form.get('email').errors['email']">Введите корректный email</span>
+              <span *ngIf="form.get('email').errors['emailIsUsed']">Такой email уже существует</span>
+            </span>
+            </div>
+            <div
+              class="form-group"
+              [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}"
+            >
+              <input class="input-form" type="text" placeholder="Ваше имя" formControlName="name" required />
+              <span
+                class="form-help-text"
+                *ngIf="form.get('name').invalid && form.get('name').touched"
+              >
+                Имя не может быть пустым.
+              </span>
+
+            </div>
+            <div
+              class="form-group"
+              [ngClass]="{'has-error': form.get('pass').invalid && form.get('pass').touched}"
+            >
+            <input class="input-form" type="password" placeholder="Введите пароль" formControlName="pass" required />
+            <!--Определяем состояние контрола,выводить или не выводить параграф "Пароль не должен быть пустым!"-->
+            <!--form.get('pass').invalid - с помощью метод get получаем контрол и проверяем его состояние, в качестве аргумента,передаем название того контола,который необходимо получить-->
+            <span
+              class="form-help-text"
+              *ngIf="form.get('pass').invalid && form.get('pass').touched"
+            >
+
+          <span
+            *ngIf="form.get('pass').errors['required']"
+          >
+		  Пароль не должен быть пустым!
+		  </span>
+              <span
+                *ngIf="form.get('pass').errors['lengthError']"
+              >
+		  Пароль должен быть больше {{charsCount}} символов!
+		  </span>
+            </span>
+            </div>
+             <div
+                class="form-group"
+                [ngClass]="{'has-error': form.get('passConf').invalid && form.get('passConf').touched}"
+              >
+             <input class="input-form" type="password" placeholder="Подтвердите пароль" formControlName="passConf" required />
+               <span
+                 class="form-help-text"
+                 *ngIf="form.get('passConf').invalid && form.get('passConf').touched"
+               >
+                Подтверждение пароля обязательно.
+              </span>
+             </div>
+
+          <!--<input class="input-form" type="text" placeholder="Подтвердите пароль" formControlName="user_name" required />-->
+
+
+          <!--
+          [disabled]="form.invalid"  -  блокируем кнопку если форма не валидна,т.е. не корректно вписанны данные
+           -->
+          <input class="input-form" type="submit" value="Зарегистрироваться" [disabled]="form.invalid" />
+        </form>
+
+        <a routerLink="/app/login-form" class="flipper">Уже зарегистрированы? Войти.</a>
+      </fieldset>
+    </div>
+
+
+  </div>
+
+</div>
